@@ -12,6 +12,7 @@ services:
         links:
             - php
     php:
+        user: "${PHP_UID}:${PHP_GID}"
         container_name: "putti-app"
         build: ./docker/php
         working_dir: /src
