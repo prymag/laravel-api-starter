@@ -1,7 +1,7 @@
 version: '3'
 services:
     web:
-        container_name: "putti-web"
+        container_name: "${CONTAINER_NAME_PREFIX}-web"
         image: nginx:latest
         ports:
             - "8080:80"
@@ -13,13 +13,13 @@ services:
             - php
     php:
         user: "${PHP_UID}:${PHP_GID}"
-        container_name: "putti-app"
+        container_name: "${CONTAINER_NAME_PREFIX}-app"
         build: ./docker/php
         working_dir: /src
         volumes:
             - .:/src
     mysql:
-        container_name: "putti-db"
+        container_name: "${CONTAINER_NAME_PREFIX}-db"
         image: mariadb
         restart: always
         environment:
@@ -27,7 +27,7 @@ services:
         volumes:
             - ./docker/mysql:/var/lib/mysql
     phpmyadmin:
-        container_name: "putti-phpmyadmin"
+        container_name: "${CONTAINER_NAME_PREFIX}-phpmyadmin"
         image: phpmyadmin
         restart: always
         ports:
