@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": [
+        "ES2020",
+        "dom"
+    ],
+    "types": [
+        "vite/client"
+    ],
+    "baseUrl": ".",
+    "paths": {
+        "@/*": [
+            "resources/*"
+        ]
+    }
+  },
+  "include": [
+    "resources/**/*"
+  ]
+}
+  
